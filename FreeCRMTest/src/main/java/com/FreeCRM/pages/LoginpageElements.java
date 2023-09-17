@@ -10,8 +10,7 @@ import com.FreeCRM.base.BaseTest;
 
 
 public class LoginpageElements extends BaseTest{
-	
-	
+
 	
 	
 	public LoginpageElements(WebDriver driver) {
