@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
@@ -16,10 +17,12 @@ import org.testng.annotations.BeforeTest;
 
 public class BaseTest {
 	
-	public  WebDriver driver;
+	public static WebDriver driver;
+	
+	
 	String browserName="chrome";
 	
-	//@BeforeClass
+	@BeforeTest
 	public void browserSetup()
 	{
 		if(browserName.equalsIgnoreCase("chrome"))
@@ -36,7 +39,7 @@ public class BaseTest {
 		}
 	}
 	
-	//@BeforeTest
+	@BeforeClass
 	public void browserInitialization()
 	{
 		driver.manage().window().maximize();
@@ -46,11 +49,14 @@ public class BaseTest {
 	}
 	
 	
-	//@AfterSuite
+	@AfterTest
 	public void closingBrowser()
 	{
 		driver.manage().window().minimize();
 		driver.quit();
 	}
+	
+	
+	
 
 }
